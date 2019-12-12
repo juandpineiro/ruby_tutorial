@@ -23,3 +23,21 @@ def functional_urls(states)
 end
 
 p functional_urls(states)
+
+# singles: Imperative version
+def imperative_singles(states)
+  singles = []
+  states.each do |state|
+    singles << state if state.split.length == 1
+  end
+  singles
+end
+
+p imperative_singles(states)
+
+# singles: functional version
+def functional_singles(states) 
+  states.select { |state| state.split.length == 1}
+end
+
+p functional_singles(states)
