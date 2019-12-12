@@ -41,3 +41,44 @@ def functional_singles(states)
 end
 
 p functional_singles(states)
+
+numbers = 1..10
+
+# sum: Imperative version
+def imperative_sum(numbers)
+  total = 0
+  numbers.each do |n|
+    total += n
+  end
+  total
+end
+
+puts imperative_sum(numbers)
+
+# sum: functional version
+def functional_sum(numbers)
+  numbers.reduce { |total, n| total += n }
+end
+
+puts functional_sum(numbers)
+
+# lengths: imperative version
+def imperative_lengths(states)
+  lengths = {}
+  states.each do |state|
+    lengths[state] = state.length
+  end
+  lengths
+end
+
+p imperative_lengths(states)
+
+# lengths: functional version
+def functional_lengths(states)
+  states.reduce({}) do |lengths, state| 
+    lengths[state] = state.length 
+    lengths
+  end
+end
+
+p functional_lengths(states)
