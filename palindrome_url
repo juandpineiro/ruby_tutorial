@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+require 'open-uri'
+require 'juandpineiro_palindrome'
+lines = open('https://cdn.learnenough.com/phrases.txt').readlines
+
+palindromes = lines.select(&:palindrome?)
+palindromes.each { |palindrome| puts "palindrome detected: #{palindrome}" } 
+File.write('palindrome_url.txt', palindromes.join)
